@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Web", "EkzoPlugin\EkzoPlugin.Web.csproj", "{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Infrastructure", "EkzoPlugin.Infrastructure\EkzoPlugin.Infrastructure.csproj", "{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.PluginManager", "EkzoPlugin.PluginManager\EkzoPlugin.PluginManager.csproj", "{3B25EFF2-5B18-4E1B-AD40-982A73168F5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Plugins.SampleMVC", "EkzoPlugin.Plugins.SampleMVC\EkzoPlugin.Plugins.SampleMVC.csproj", "{EE20512B-A5C1-46C0-A2EC-19F58E716997}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B25EFF2-5B18-4E1B-AD40-982A73168F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B25EFF2-5B18-4E1B-AD40-982A73168F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B25EFF2-5B18-4E1B-AD40-982A73168F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B25EFF2-5B18-4E1B-AD40-982A73168F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE20512B-A5C1-46C0-A2EC-19F58E716997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE20512B-A5C1-46C0-A2EC-19F58E716997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE20512B-A5C1-46C0-A2EC-19F58E716997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE20512B-A5C1-46C0-A2EC-19F58E716997}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

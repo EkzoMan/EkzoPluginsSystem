@@ -1,0 +1,119 @@
+﻿html, body {
+    font-family: Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 0.9em;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    padding: 10px 10px 0;
+}
+
+    #header > div > #login {
+        color: #444444;
+        float: right;
+        font-size: 0.9em;
+    }
+
+#body {
+    padding: 0 10px 60px;
+}
+
+#footer {
+    border-top: 1px solid #BBBBBB;
+    bottom: 0;
+    color: #777777;
+    font-size: 10px;
+    height: 20px;
+    padding-top: 5px;
+    position: absolute;
+    width: 100%;
+}
+
+nav {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+    nav > ul {
+        list-style: none outside none;
+    }
+
+        nav > ul > li {
+            float: left;
+            margin-right: 10px;
+        }
+
+#intranetmenubox {
+    background: none repeat scroll 0 0 #F3F3EC;
+    border: 1px solid #DBDBC9;
+    display: inline-block;
+    font-size: x-small;
+    margin: 0 0 48px;
+    padding: 0.5em 1em;
+}
+
+    #intranetmenubox > h3 {
+        margin: 0;
+    }
+
+        #intranetmenubox > h3 > a {
+            color: #0000FF;
+            text-decoration: none;
+        }
+
+            #intranetmenubox > h3 > a:hover {
+                text-decoration: underline;
+            }
+
+#sitename {
+    color: #666699;
+    font-weight: normal;
+    text-align: left;
+}
+
+#lettersLinks {
+    font-size: x-small;
+    list-style: none outside none;
+    margin: 4px 0 10px 10px;
+    padding: 0;
+}
+
+#pluginsNavigation {
+    margin: 0;
+    padding: 0;
+}
+
+    #pluginsNavigation > li {
+        border: 1px solid #DBDBC9;
+        font-size: small;
+        font-weight: bold;
+        margin: 0;
+        text-decoration: none;
+    }
+
+        #pluginsNavigation > li.MenuItem {
+            background-color: #F3F3EC;
+            float: left;
+            font-size: 0.95em;
+            list-style: none outside none;
+            margin-left: 2px;
+            min-width: 145px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        #pluginsNavigation > li > a {
+            color: #0000FF;
+            text-decoration: none;
+        }
+
+            #pluginsNavigation > li > a:hover {
+                text-decoration: underline;
+            }

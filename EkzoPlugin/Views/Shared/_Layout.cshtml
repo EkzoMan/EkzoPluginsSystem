@@ -1,0 +1,47 @@
+﻿@using EkzoPlugin.Infrastructure
+@using EkzoPlugin.PluginManager
+@{
+    IEnumerable<IModule> modules = PluginManager.Current.GetModules();
+    Func<string, IModule> getModule = name => PluginManager.Current.GetModule(name);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;">
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - EkzoPluginsSystem</title>
+    <link href="@Url.Content("~/Content/images/favico.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <div id="container">
+        <header id="header">
+            <div class="float-right">
+                <h4>Modules</h4>
+                <nav>
+                    <ul id="pluginsNavigation">
+                        <li class="MenuItem">@Html.ActionLink("Home","Index","Home",null,null)</li>
+                        @foreach (IModule module in modules)
+                        {
+                            <li class="MenuItem">@Html.ActionLink(module.Title, "Index", module.EntryControllerName)</li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="body">
+
+            @RenderBody()
+        </div>
+        <footer id="footer">
+           
+        </footer>
+    </div>
+</body>
+</html>
