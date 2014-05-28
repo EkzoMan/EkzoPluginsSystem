@@ -1,54 +1,113 @@
-﻿html, body {
-    font-family: Helvetica,Tahoma,Arial,sans-serif;
+﻿
+@import "http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic";
+
+html, body {
+    font-family: "Open Sans";
     font-size: 0.9em;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
+a {
+    color: #343434;
+    font-weight: bold;
+}
+
+.menu-container {
+    overflow: auto;
+}
+
 #container {
     min-height: 100%;
+    overflow: auto;
     position: relative;
+    width: 100%;
 }
+
+    #container #top-menu {
+        background-color: #F1F1F1;
+        height: 120px;
+        left: 0;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+        #container #top-menu .float-right {
+            padding: 0 20px;
+        }
+
+        #container #top-menu #stripe {
+            background-color: #343434;
+            height: 30px;
+            width: 100%;
+        }
+
+    #container #desctiption-box {
+        background-color: #FFFFFF;
+        font-size: 1.1em;
+        min-height: 425px;
+        padding: 10px 20px;
+    }
+
+        #container #desctiption-box a {
+            color: #4488B9;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    #container #content-box {
+        background-color: #F1F1F1;
+        overflow: auto;
+        padding: 70px 10px;
+        text-align: center;
+    }
 
 #header {
     padding: 10px 10px 0;
 }
 
-    #header > div > #login {
-        color: #444444;
-        float: right;
-        font-size: 0.9em;
+#body {
+    padding: 150px 0 0;
+}
+
+    #body div {
+        padding: 5px 10px;
     }
 
-#body {
-    padding: 0 10px 60px;
-}
-
-#footer {
-    border-top: 1px solid #BBBBBB;
-    bottom: 0;
-    color: #777777;
-    font-size: 10px;
-    height: 20px;
-    padding-top: 5px;
-    position: absolute;
-    width: 100%;
-}
-
 nav {
-    margin-bottom: 20px;
+    margin: 37px 0 0;
     overflow: auto;
 }
 
-    nav > ul {
+    nav ul {
+        float: right;
         list-style: none outside none;
+        margin: 0 0 4px;
     }
 
-        nav > ul > li {
+        nav ul li {
             float: left;
             margin-right: 10px;
+            padding: 10px 20px;
+            width: auto;
         }
+
+            nav ul li:hover,
+            nav ul li.current {
+                border-bottom: 4px solid #4488B9;
+                margin-bottom: -4px;
+            }
+
+            nav ul li a {
+                color: #343434;
+                font-size: 15pt;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+            }
 
 #intranetmenubox {
     background: none repeat scroll 0 0 #F3F3EC;
@@ -85,35 +144,42 @@ nav {
     padding: 0;
 }
 
-#pluginsNavigation {
-    margin: 0;
-    padding: 0;
+#content-box a {
+    color: #343434;
+    display: inline-block;
+    text-decoration: none;
 }
 
-    #pluginsNavigation > li {
-        border: 1px solid #DBDBC9;
-        font-size: small;
-        font-weight: bold;
-        margin: 0;
-        text-decoration: none;
+.link-box {
+    border-radius: 10px;
+    float: left;
+    margin: 0 40px 20px 0;
+    min-height: 190px;
+    padding: 10px 15px;
+    text-align: center;
+    width: 125px;
+}
+
+    .link-box .link-box-icon {
+        max-height: 120px;
+        max-width: 120px;
     }
 
-        #pluginsNavigation > li.MenuItem {
-            background-color: #F3F3EC;
-            float: left;
-            font-size: 0.95em;
-            list-style: none outside none;
-            margin-left: 2px;
-            min-width: 145px;
-            padding: 5px;
-            text-align: center;
+    .link-box .link-box-text {
+    }
+
+        .link-box .link-box-text h3 {
+            margin: 5px 0;
         }
 
-        #pluginsNavigation > li > a {
-            color: #0000FF;
-            text-decoration: none;
-        }
+#logo {
+    float: left;
+    font-size: 25pt;
+    padding: 20px;
+}
 
-            #pluginsNavigation > li > a:hover {
-                text-decoration: underline;
-            }
+    #logo img {
+        height: 60px;
+        margin-bottom: -20px;
+        margin-right: 10px;
+    }

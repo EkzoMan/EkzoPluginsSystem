@@ -1,4 +1,18 @@
 ﻿@{
     ViewBag.Title = "Main page";
 }
-<h3>Web site core main page</h3>
+
+<h2>EkzoPluginSystem</h2>
+
+ASP.NET MVC plugins system based on precompiled views, generatad by <a href="http://visualstudiogallery.msdn.microsoft.com/1f6ec6ff-e89b-4c47-8e79-d2d68df894ec" target="_blank">RazorGenerator tool</a>.<br />
+You need manualy install RazorGenerator in Visual Studion to enable precompiled view generating.
+
+<h2>Description</h2>
+
+This project is implementation of plugin architecture based website. <br />
+Main project contains functions to load modules, view precompiled views and control web application lifecycle.<br />
+Each plugin is independent website(web application), so you can develope it without adding core site to solution.<br />
+
+<h3>Post build events</h3>
+
+Post build events is powerful tool to control project. In this project post build events create "build" directory in solution folder and copy files from core website and plugins.

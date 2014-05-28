@@ -142,7 +142,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\GitHub-Mark-120px-plus.png" />
+    <Content Include="Content\images\icon-contact.png" />
+    <Content Include="Content\images\icon-document.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
