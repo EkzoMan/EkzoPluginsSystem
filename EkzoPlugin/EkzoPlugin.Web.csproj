@@ -41,8 +41,7 @@
   <ItemGroup>
     <Reference Include="BoC.Web.Mvc.PrecompiledViews, Version=1.0.5.0, Culture=neutral, PublicKeyToken=b66b1a10e1d96b4d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\BoC-master\Build\BoC.Web.Mvc.PrecompiledViews.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\Binaries\BoC.Web.Mvc.PrecompiledViews.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -286,6 +285,19 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>rmdir "$(SolutionDir)\build" /S /Q
+md "$(SolutionDir)\build"
+xcopy "$(SolutionDir)\EkzoPlugin\bin" "$(SolutionDir)build\bin" /s /i /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Content" "$(SolutionDir)build\Content" /s /i /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Scripts" "$(SolutionDir)build\Scripts" /s /i /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Views" "$(SolutionDir)build\Views" /s /i /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Global.asax" "$(SolutionDir)build" /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Global.asax.cs" "$(SolutionDir)build" /Y
+xcopy "$(SolutionDir)\EkzoPlugin\Web.config" "$(SolutionDir)build" /Y
+md "$(SolutionDir)\build\plugins"
+del "$(SolutionDir)\build\plugins\*.dll" /F /S/ Q</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
