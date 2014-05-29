@@ -1,0 +1,72 @@
+﻿@using EkzoPlugin.Infrastructure
+@using EkzoPlugin.PluginManager
+@{
+    IEnumerable<IModule> modules = PluginManager.Current.GetModules();
+    Func<string, IModule> getModule = name => PluginManager.Current.GetModule(name);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;">
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - EkzoPluginsSystem</title>
+    <link href="@Url.Content("~/Content/images/favico.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <div id="container">
+        <header id="top-menu">
+            <div id="stripe">
+            </div>
+            <div class="menu-container">
+                <a href="https://github.com/EkzoMan" target="_blank">
+                    <div id="logo">
+                        <img src="~/Content/images/logo.png" />EkzoProject
+                    </div>
+                </a>
+                <nav>
+                    <ul id="pluginsNavigation">
+                        <li class="MenuItem">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+                        @foreach (IModule module in modules)
+                        {
+                            <li class="MenuItem">@Html.ActionLink(module.Title, "Index", module.EntryControllerName)</li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="body">
+            <div id="desctiption-box">
+                @RenderBody()
+            </div>
+
+            <div id="content-box">
+                <a href="https://github.com/EkzoMan/EkzoPluginsSystem" target="_blank">
+                    <div class="link-box">
+                        <img class="link-box-icon" src="~/Content/images/GitHub-Mark-120px-plus.png" />
+                        <span class="link-box-text">
+                            <h3>GITHUB</h3>
+                            Visit github repository
+                        </span>
+                    </div>
+                </a>
+                <a href="mailto:amisyagin@yandex.ru">
+                    <div class="link-box">
+                        <img class="link-box-icon" src="~/Content/images/icon-contact.png" />
+                        <span class="link-box-text">
+                            <h3>CONTACT ME</h3>
+                            Send email to author
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
