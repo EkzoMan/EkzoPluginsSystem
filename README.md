@@ -10,6 +10,4 @@ This project is implementation of plugin architecture based website.
 Main project contains functions to load modules, view precompiled views and control web application lifecycle.
 Each plugin is independent website(web application), so you can develope it without adding core site to solution.
 
-Post build events
------------------
-Post build events is powerful tool to control project. In this project post build events create "build" directory in solution folder and copy files from core website and plugins.
+For more information open <a href="https://github.com/EkzoMan/EkzoPluginsSystem/wiki">WiKi page</a>
