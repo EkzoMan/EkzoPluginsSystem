@@ -28,3 +28,7 @@ namespace EkzoPlugin.Web
         }
     }
 }
+
+//Project: EkzoPluginSystem  
+//Author:  Alexey Misyaign
+//Licence: MIT Licence
