@@ -17,6 +17,8 @@ Post build events is powerful tool to control project. In this project post buil
 
 What's next?
 -----------------
-Next part of work is widgets.
-Create online plugin manager to make work comfortable.
-Clean code and update lightweight branch.
+<ol>
+<li>Next part of work is widgets.</li>
+<li>Create online plugin manager to make work comfortable.</li>
+<li>Clean code and update lightweight branch.</li>
+</ol>
