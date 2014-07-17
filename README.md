@@ -13,3 +13,12 @@ Each plugin is independent website(web application), so you can develope it with
 Post build events
 -----------------
 Post build events is powerful tool to control project. In this project post build events create "build" directory in solution folder and copy files from core website and plugins.
+
+
+What's next?
+-----------------
+<ol>
+<li>Next part of work is widgets.</li>
+<li>Create online plugin manager to make work comfortable.</li>
+<li>Clean code and update lightweight branch.</li>
+</ol>
