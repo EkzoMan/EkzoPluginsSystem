@@ -8,8 +8,8 @@
     <ProjectGuid>{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vacations_Modular.Infrastructure</RootNamespace>
-    <AssemblyName>Vacations_Modular.Infrastructure</AssemblyName>
+    <RootNamespace>EkzoPlugin.Infrastructure</RootNamespace>
+    <AssemblyName>EkzoPlugin.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
