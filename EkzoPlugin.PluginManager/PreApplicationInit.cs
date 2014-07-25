@@ -13,6 +13,9 @@ namespace EkzoPlugin.PluginManager
 {
     public class PreApplicationInit
     {
+        /// <summary>
+        /// Initialize plugin manager on application startup
+        /// </summary>
         static PreApplicationInit()
         {
             string pluginsPath = HostingEnvironment.MapPath("~/plugins");
