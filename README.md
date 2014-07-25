@@ -22,3 +22,16 @@ What's next?
 <li>Create online plugin manager to make work comfortable.</li>
 <li>Clean code and update lightweight branch.</li>
 </ol>
+
+Current project TODOs
+------------------
+
+- [ ] Update pluign manager to not lock plugins files
+- [ ] Add deafults
+  - [ ] Default interfaces
+  - [ ] Default providers
+- [ ] Add dependency injection
+
+Global TODOs
+-----------------
+- [ ] Create full functional CMS based on this project
