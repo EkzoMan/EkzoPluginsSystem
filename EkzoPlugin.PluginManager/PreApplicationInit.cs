@@ -8,80 +8,36 @@ using System.Web.Hosting;
 using EkzoPlugin.Infrastructure;
 
 [assembly: PreApplicationStartMethod(typeof(EkzoPlugin.PluginManager.PreApplicationInit), "InitializePlugins")]
-
 namespace EkzoPlugin.PluginManager
 {
     public class PreApplicationInit
     {
-        /// <summary>
-        /// Initialize plugin manager on application startup
-        /// </summary>
-        static PreApplicationInit()
-        {
-            string pluginsPath = HostingEnvironment.MapPath("~/plugins");
-            string pluginsTempPath = HostingEnvironment.MapPath("~/plugins/temp");
-
-            if (pluginsPath == null || pluginsTempPath == null)
-	            throw new DirectoryNotFoundException("plugins");
-
-            PluginFolder = new DirectoryInfo(pluginsPath);
-            TempPluginFolder = new DirectoryInfo(pluginsTempPath);
-        }
-
         /// <summary>
         /// The source plugin folder from which to copy from
         /// </summary>
         /// <remarks>
         /// This folder can contain sub folders to organize plugin types
         /// </remarks>
-        private static readonly DirectoryInfo PluginFolder;
-
-        /// <summary>
-        /// The folder to  copy the plugin DLLs to use for running the app
-        /// </summary>
-        private static readonly DirectoryInfo TempPluginFolder;
+        private static DirectoryInfo PluginFolder;
 
         /// <summary>
         /// Initialize method that registers all plugins
         /// </summary>
         public static void InitializePlugins()
-        {            
-            Directory.CreateDirectory(TempPluginFolder.FullName);
+        {
+            string pluginsDir = System.Configuration.ConfigurationSettings.AppSettings["pluginsDirectory"] == null ? "~/plugins" : System.Configuration.ConfigurationSettings.AppSettings["pluginsDirectory"];
+            if (!pluginsDir.StartsWith("~/")) pluginsDir = "~/" + pluginsDir;
+            pluginsDir = pluginsDir.Replace("//", "/");
 
-            //clear out plugins
-            foreach (var f in TempPluginFolder.GetFiles("*.dll", SearchOption.AllDirectories))
-            {
-                try
-                {
-                    f.Delete();
-                }
-                catch (Exception)
-                {
-                    
-                }
-                
-            }            
+            string pluginsPath = HostingEnvironment.MapPath(pluginsDir);
+            if (pluginsPath == null)
+                throw new DirectoryNotFoundException("plugins");
 
-            //copy files
-            foreach (var plug in PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories))
-            {
-                try
-                {
-                    var di = Directory.CreateDirectory(TempPluginFolder.FullName);
-                    File.Copy(plug.FullName, Path.Combine(di.FullName, plug.Name), true);
-                }
-                catch (Exception)
-                {
+            PluginFolder = new DirectoryInfo(pluginsPath);
 
-                }
-            }
-
-            // * This will put the plugin assemblies in the 'Load' context
-            // This works but requires a 'probing' folder be defined in the web.config
-            // eg: <probing privatePath="plugins/temp" />
-            var assemblies = TempPluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
+            var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
                     .Select(x => AssemblyName.GetAssemblyName(x.FullName))
-                    .Select(x => Assembly.Load(x.FullName));
+                    .Select(x => AppDomain.CurrentDomain.Load(x.FullName));
 
             foreach (var assembly in assemblies)
             {

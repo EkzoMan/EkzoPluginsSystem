@@ -36,6 +36,10 @@
                 <ul class="element-menu">
                     <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "element" })</li>
                     <span class="element-divider"></span>
+                    <li>@Html.ActionLink("Change log", "Changelog", "Home", null, new { @class = "element" })</li>
+                    <span class="element-divider"></span>
+                    <li>@Html.ActionLink("Roadmap", "Roadmap", "Home", null, new { @class = "element" })</li>
+                    <span class="element-divider"></span>
                     @foreach (IModule module in modules)
                     {
                         <li>@Html.ActionLink(module.Title, "Index", module.EntryControllerName, null, new { @class = "element" })</li>
@@ -57,32 +61,13 @@
     <div class="">
         <div style="height: 230px;">
             <div style="padding: 50px 20px" class="container">
-                <h1 class="">EkzoPlugin</h1>
-                <h2 class="">ASP.NET MVC 4 plugin architecture system<br>
+                <h1 class="">EkzoPluginSystem</h1>
+                <h2 class="">
+                    ASP.NET MVC 4 plugin architecture system<br>
                     with MetroUI(ModernUI) interface.
                 </h2>
             </div>
         </div>
-
-        <div class="container">
-            <div class="grid fluid">
-                <div class="row">
-                    <div class="span3 bg-amber padding20 text-center">
-                        <h2 class="fg-white">MetroUI layout</h2>
-                    </div>
-                    <div class="span3 bg-green padding20 text-center">
-                        <h2 class="fg-white">Simple usage</h2>
-                    </div>
-                    <div class="span3 bg-blue padding20 text-center">
-                        <h2 class="fg-white">MVC 4 based</h2>
-                    </div>
-                    <div class="span3 bg-red padding20 text-center">
-                        <h2 class="fg-white">MIT license</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
             <div class="grid">
                 <div class="row">
@@ -136,7 +121,8 @@
 
             <div style="padding: 10px" class="container tertiary-text bg-dark fg-white">
                 2013-2014, EkzoPluginSystem &copy; by <a class="fg-yellow" href="mailto:amisyagin@yandex.ru">Alexey Misyagin</a><br />
-                2012-2013, Metro UI CSS &copy; by  <a class="fg-yellow" href="mailto:sergey@pimenov.com.ua">Sergey Pimenov</a>
+                2012-2013, Metro UI CSS &copy; by  <a class="fg-yellow" href="mailto:sergey@pimenov.com.ua">Sergey Pimenov</a> <br />
+                Core version: @System.Configuration.ConfigurationSettings.AppSettings["coreVersion"]
             </div>
         </div>
     </div>

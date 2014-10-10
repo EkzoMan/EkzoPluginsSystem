@@ -10,8 +10,19 @@ namespace EkzoPlugin.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Главная";
+            ViewBag.Title = "Home page";
+            return View();
+        }
 
+        public ActionResult Changelog()
+        {
+            ViewBag.Title = "Change log";
+            return View();
+        }
+
+        public ActionResult RoadMap()
+        {
+            ViewBag.Title = "Roadmap";
             return View();
         }
     }
