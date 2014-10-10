@@ -27,7 +27,7 @@ Current project TODOs
 ------------------
 
 - [x] Add comments to code. More comments needed
-- [ ] Update pluign manager to not lock plugins files
+- [+] Update pluign manager to not lock plugins files
 - [ ] Add deafults
   - [ ] Default interfaces
   - [ ] Default providers
