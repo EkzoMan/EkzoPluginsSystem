@@ -35,21 +35,28 @@ namespace EkzoPlugin.PluginManager
 
             PluginFolder = new DirectoryInfo(pluginsPath);
 
-            var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
-                    .Select(x => AssemblyName.GetAssemblyName(x.FullName))
-                    .Select(x => AppDomain.CurrentDomain.Load(x.FullName));
+           var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
+                    .Select(x => AssemblyName.GetAssemblyName(x.FullName));
 
             foreach (var assembly in assemblies)
             {
-                Type type = assembly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
-                if (type != null)
+                try
                 {
-                    //Add the plugin as a reference to the application
-                    BuildManager.AddReferencedAssembly(assembly);
+                    var currentAssambly = AppDomain.CurrentDomain.Load(assembly.FullName);
+                    Type type = currentAssambly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
+                    if (type != null)
+                    {
+                        //Add the plugin as a reference to the application
+                        BuildManager.AddReferencedAssembly(currentAssambly);
 
-                    //Add the modules to the PluginManager to manage them later
-                    var module = (IModule)Activator.CreateInstance(type);
-                    PluginManager.Current.Modules.Add(module, assembly);
+                        //Add the modules to the PluginManager to manage them later
+                        var module = (IModule)Activator.CreateInstance(type);
+                        PluginManager.Current.Modules.Add(module, currentAssambly);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
             }
         }
