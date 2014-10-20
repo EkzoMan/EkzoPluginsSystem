@@ -42,7 +42,7 @@ namespace EkzoPlugin.PluginManager
             {
                 try
                 {
-                    var currentAssambly = AppDomain.CurrentDomain.Load(assembly.FullName);
+                    var currentAssambly = AppDomain.CurrentDomain.Load(assembly);
                     Type type = currentAssambly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
                     if (type != null)
                     {
