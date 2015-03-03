@@ -10,4 +10,29 @@ This project is implementation of plugin architecture based website.
 Main project contains functions to load modules, view precompiled views and control web application lifecycle.
 Each plugin is independent website(web application), so you can develope it without adding core site to solution.
 
-For more information open <a href="https://github.com/EkzoMan/EkzoPluginsSystem/wiki">WiKi page</a>
+Post build events
+-----------------
+Post build events is powerful tool to control project. In this project post build events create "build" directory in solution folder and copy files from core website and plugins.
+
+
+What's next?
+-----------------
+<ol>
+<li>Next part of work is widgets.</li>
+<li>Create online plugin manager to make work comfortable.</li>
+<li>Clean code and update lightweight branch.</li>
+</ol>
+
+Current project TODOs
+------------------
+
+- [x] Add comments to code. More comments needed
+- [x] Update pluign manager to not lock plugins files
+- [ ] Add deafults
+  - [ ] Default interfaces
+  - [ ] Default providers
+- [ ] Add dependency injection
+
+Global TODOs
+-----------------
+- [ ] Create full functional CMS based on this project

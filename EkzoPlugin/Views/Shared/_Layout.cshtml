@@ -11,60 +11,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge;">
     <meta charset="utf-8" />
     <title>@ViewBag.Title - EkzoPluginsSystem</title>
-    <link href="@Url.Content("~/Content/images/favico.ico")" rel="shortcut icon" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/images/ekzoico.ico")" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/uikit", "~/Content/css")
+
     @RenderSection("styles", false)
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/uikit")
     @RenderSection("scripts", false)
 </head>
 <body>
-    <div id="container">
-        <header id="top-menu">
-            <div id="stripe">
+    <header>
+        <div class="uk-grid">
+            <nav class="uk-navbar uk-container-center uk-width-8-10">
+                <a class="uk-navbar-brand" href="/"><span class="icon-grid-view"></span>EkzoPluginSystem</a>
+                <span class="element-divider"></span>
+                <a href="#" class="element1 pull-menu"></a>
+                <ul class="uk-navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "element" })</li>
+                    <li>@Html.ActionLink("Change log", "Changelog", "Home", null, new { @class = "element" })</li>
+                    <li>@Html.ActionLink("Roadmap", "Roadmap", "Home", null, new { @class = "element" })</li>
+                    @foreach (IModule module in modules)
+                    {
+                        <li>@Html.ActionLink(module.Title, "Index", module.EntryControllerName, null, new { @class = "element" })</li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="uk-grid">
+        <div class="uk-width-8-10 uk-container-center">
+            <div class="uk-article">
+                <div style="padding: 50px 20px" class="container">
+                    <h1 class="uk-h1 uk-article-title">EkzoPluginSystem</h1>
+                    <h2 class="uk-article-meta">
+                        ASP.NET MVC 4 plugin architecture system.
+                    </h2>
+                </div>
             </div>
-            <div class="menu-container">
-                <a href="https://github.com/EkzoMan" target="_blank">
-                    <div id="logo">
-                        <img src="~/Content/images/logo.png" />EkzoProject
-                    </div>
-                </a>
-                <nav>
-                    <ul id="pluginsNavigation">
-                        <li class="MenuItem">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
-                        @foreach (IModule module in modules)
-                        {
-                            <li class="MenuItem">@Html.ActionLink(module.Title, "Index", module.EntryControllerName)</li>
-                        }
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <div id="body">
-            <div id="desctiption-box">
-                @RenderBody()
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    @RenderBody()
+                </div>
             </div>
 
-            <div id="content-box">
-                <a href="https://github.com/EkzoMan/EkzoPluginsSystem" target="_blank">
-                    <div class="link-box">
-                        <img class="link-box-icon" src="~/Content/images/GitHub-Mark-120px-plus.png" />
-                        <span class="link-box-text">
-                            <h3>GITHUB</h3>
-                            Visit github repository
-                        </span>
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <div class="uk-panel uk-panel-box">
+                        <h3 class="uk-h3">About EkzoPluginSystem author</h3>
+                        <p>
+                            Name: Alexey Misyagin.<br />
+                            Occupation: Web developer<br />
+                            Location: Moscow, Russia.
+                        </p>
+                        <a href="https://github.com/EkzoMan" class="uk-icon-button uk-icon-github"></a>
                     </div>
-                </a>
-                <a href="mailto:amisyagin@yandex.ru">
-                    <div class="link-box">
-                        <img class="link-box-icon" src="~/Content/images/icon-contact.png" />
-                        <span class="link-box-text">
-                            <h3>CONTACT ME</h3>
-                            Send email to author
-                        </span>
+                </div>
+            </div>
+
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <div class="uk-panel-box-secondary">
+                        2013-@DateTime.Now.Year, EkzoPluginSystem &copy; by <a class="fg-yellow" href="mailto:amisyagin@yandex.ru">Alexey Misyagin</a><br />
+                        Core version: @System.Configuration.ConfigurationSettings.AppSettings["coreVersion"]
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -14,6 +15,7 @@ namespace EkzoPlugin.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        
         protected void Application_Start()
         {
             //Register embedded vews
@@ -25,6 +27,35 @@ namespace EkzoPlugin.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
         }
+
+        private static string GetIISVersion()
+        {
+            HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1/");
+            HttpWebResponse myHttpWebResponse = null;
+            try
+            {
+                myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                myHttpWebResponse = (HttpWebResponse)ex.Response;
+            }
+            string WebServer = myHttpWebResponse.Headers["Server"];
+            myHttpWebResponse.Close();
+
+            if (WebServer.StartsWith("Microsoft-IIS/"))
+            {
+                WebServer = WebServer.Substring(14, 3);
+            }
+            return WebServer;
+        }
+
+
     }
 }
+
+//Project: EkzoPluginSystem  
+//Author:  Alexey Misyaign
+//Licence: MIT Licence

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Version 0.2</h3>
+
+<h4>Main changes</h4>
+<ol>
+    <li>
+        PreApplication module now loads plugins directly to application domain to prevent locking assemblies.
+    </li>
+    <li>
+        From now there's no temp folder for shadow copy.
+    </li>
+    <li>
+        Now you can change plugins directory location in Web.config file.<br />
+        If path not set in web.config manager set path to default ~/plugins
+    </li>
+</ol>

@@ -7,6 +7,9 @@
 	        
         }
 
+        /// <summary>
+        /// Initialize plugin manager and register all plugins
+        /// </summary>
     	public static void Initialize()
         {
             foreach (var asmbl in PluginManager.Current.Modules.Values)
