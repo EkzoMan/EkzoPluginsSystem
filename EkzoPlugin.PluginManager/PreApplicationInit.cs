@@ -43,7 +43,7 @@ namespace EkzoPlugin.PluginManager
                 try
                 {
                     var currentAssambly = AppDomain.CurrentDomain.Load(assembly);
-                    Type type = currentAssambly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
+                    Type type = currentAssambly.GetTypes().FirstOrDefault(t => t.GetInterface(typeof(IModule).Name) != null);
                     if (type != null)
                     {
                         //Add the plugin as a reference to the application

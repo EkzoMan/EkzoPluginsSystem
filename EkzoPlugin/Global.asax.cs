@@ -15,8 +15,7 @@ namespace EkzoPlugin.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static string IISVersion = GetIISVersion();
-
+        
         protected void Application_Start()
         {
             //Register embedded vews

@@ -3,27 +3,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-  
-    <div class="container">
-        <div class="grid fluid">
-            <div class="row">
-                <div class="span3 bg-amber padding20 text-center">
-                    <h2 class="fg-white">MetroUI layout</h2>
+            <div class="uk-grid">
+                <div class="uk-width-1-4 uk-text-center">
+                    <h2 class="uk-text-center uk-panel uk-panel-box">MetroUI layout</h2>
                 </div>
-                <div class="span3 bg-green padding20 text-center">
-                    <h2 class="fg-white">Simple usage</h2>
+                <div class="uk-width-1-4 uk-text-center">
+                    <h2 class="uk-panel uk-panel-box">Simple usage</h2>
                 </div>
-                <div class="span3 bg-blue padding20 text-center">
-                    <h2 class="fg-white">MVC 4 based</h2>
+                <div class="uk-width-1-4 uk-text-center">
+                    <h2 class="uk-panel uk-panel-box">MVC 4 based</h2>
                 </div>
-                <div class="span3 bg-red padding20 text-center">
-                    <h2 class="fg-white">MIT license</h2>
+                <div class="uk-width-1-4 uk-text-center">
+                    <h2 class="uk-panel uk-panel-box">MIT license</h2>
                 </div>
             </div>
-        </div>
-    </div>
-
+  
     <h1>@ViewBag.Title</h1>
 
     <h2>Description</h2>
@@ -34,14 +28,11 @@
     Each plugin is independent website(web application), so you can develope it without adding core site to solution.<br />
     General information can be found on github <a href="https://github.com/EkzoMan/EkzoPluginsSystem/wiki">Wiki page</a>.
 
-    <h2>Components</h2>
+    <h2 class="uk-h2">Components</h2>
 
-    <span>
-        Project layout use MetroUI CSS project by Sergey Pimenov.<br />
-        EkzoPluginSystem Core by Alexey Misyagin.<br />
-
-        <h4>MIT licence</h4>
-        <span style="text-align: justify">
+    <div>
+        <h4 class="uk-h4">MIT licence</h4>
+        <span class="uk-text-justify">
             Permission is hereby granted, free of charge, to any person obtaining a copy
             of this software and associated documentation files (the "Software"), to deal
             in the Software without restriction, including without limitation the rights
@@ -51,6 +42,7 @@
 
             The above copyright notice and this permission notice shall be included in
             all copies or substantial portions of the Software.<br />
+
             <span style="font-weight: bold">
                 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
                 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -61,4 +53,4 @@
                 THE SOFTWARE.
             </span>
         </span>
-    </span>
+    </div>
