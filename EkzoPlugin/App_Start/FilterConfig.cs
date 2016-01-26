@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace EkzoPlugin.Web
+namespace EkzoPlugin.CoreSite.Web
 {
     public class FilterConfig
     {

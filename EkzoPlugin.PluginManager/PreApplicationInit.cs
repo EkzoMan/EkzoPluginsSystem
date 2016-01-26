@@ -35,15 +35,15 @@ namespace EkzoPlugin.PluginManager
 
             PluginFolder = new DirectoryInfo(pluginsPath);
 
-           var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
-                    .Select(x => AssemblyName.GetAssemblyName(x.FullName));
+            var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
+                     .Select(x => AssemblyName.GetAssemblyName(x.FullName));
 
             foreach (var assembly in assemblies)
             {
                 try
                 {
                     var currentAssambly = AppDomain.CurrentDomain.Load(assembly);
-                    Type type = currentAssambly.GetTypes().FirstOrDefault(t => t.GetInterface(typeof(IModule).Name) != null);
+                    Type type = currentAssambly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
                     if (type != null)
                     {
                         //Add the plugin as a reference to the application
@@ -52,11 +52,14 @@ namespace EkzoPlugin.PluginManager
                         //Add the modules to the PluginManager to manage them later
                         var module = (IModule)Activator.CreateInstance(type);
                         PluginManager.Current.Modules.Add(module, currentAssambly);
+                        
                     }
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex.Message);
+                    foreach (var loaderException in (ex as System.Reflection.ReflectionTypeLoadException).LoaderExceptions)
+                        System.Diagnostics.Debug.WriteLine(loaderException.Message);
                 }
             }
         }

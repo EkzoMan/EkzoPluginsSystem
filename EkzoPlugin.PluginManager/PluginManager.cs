@@ -18,19 +18,19 @@ namespace EkzoPlugin.PluginManager
 
 
         private static PluginManager _current;
-        
+
         /// <summary>
         /// Returns current initialized plugin manager object
         /// </summary>
-        public static PluginManager Current 
-        { 
-	        get { return _current ?? (_current = new PluginManager()); }
+        public static PluginManager Current
+        {
+            get { return _current ?? (_current = new PluginManager()); }
         }
 
         /// <summary>
         /// List of loaded modules
         /// </summary>
-    	internal Dictionary<IModule, Assembly> Modules { get; set; }
+        internal Dictionary<IModule, Assembly> Modules { get; set; }
 
         /// <summary>
         /// Load modules

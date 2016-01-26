@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,10 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Commons.Web.Mvc.PrecompiledViews, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Binaries\Commons.Web.Mvc.PrecompiledViews.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,28 +52,28 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -89,26 +87,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -127,214 +105,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\components\accordion.almost-flat.css" />
-    <Content Include="Content\components\accordion.almost-flat.min.css" />
-    <Content Include="Content\components\accordion.css" />
-    <Content Include="Content\components\accordion.gradient.css" />
-    <Content Include="Content\components\accordion.gradient.min.css" />
-    <Content Include="Content\components\accordion.min.css" />
-    <Content Include="Content\components\autocomplete.almost-flat.css" />
-    <Content Include="Content\components\autocomplete.almost-flat.min.css" />
-    <Content Include="Content\components\autocomplete.css" />
-    <Content Include="Content\components\autocomplete.gradient.css" />
-    <Content Include="Content\components\autocomplete.gradient.min.css" />
-    <Content Include="Content\components\autocomplete.min.css" />
-    <Content Include="Content\components\datepicker.almost-flat.css" />
-    <Content Include="Content\components\datepicker.almost-flat.min.css" />
-    <Content Include="Content\components\datepicker.css" />
-    <Content Include="Content\components\datepicker.gradient.css" />
-    <Content Include="Content\components\datepicker.gradient.min.css" />
-    <Content Include="Content\components\datepicker.min.css" />
-    <Content Include="Content\components\dotnav.almost-flat.css" />
-    <Content Include="Content\components\dotnav.almost-flat.min.css" />
-    <Content Include="Content\components\dotnav.css" />
-    <Content Include="Content\components\dotnav.gradient.css" />
-    <Content Include="Content\components\dotnav.gradient.min.css" />
-    <Content Include="Content\components\dotnav.min.css" />
-    <Content Include="Content\components\form-advanced.almost-flat.css" />
-    <Content Include="Content\components\form-advanced.almost-flat.min.css" />
-    <Content Include="Content\components\form-advanced.css" />
-    <Content Include="Content\components\form-advanced.gradient.css" />
-    <Content Include="Content\components\form-advanced.gradient.min.css" />
-    <Content Include="Content\components\form-advanced.min.css" />
-    <Content Include="Content\components\form-file.almost-flat.css" />
-    <Content Include="Content\components\form-file.almost-flat.min.css" />
-    <Content Include="Content\components\form-file.css" />
-    <Content Include="Content\components\form-file.gradient.css" />
-    <Content Include="Content\components\form-file.gradient.min.css" />
-    <Content Include="Content\components\form-file.min.css" />
-    <Content Include="Content\components\form-password.almost-flat.css" />
-    <Content Include="Content\components\form-password.almost-flat.min.css" />
-    <Content Include="Content\components\form-password.css" />
-    <Content Include="Content\components\form-password.gradient.css" />
-    <Content Include="Content\components\form-password.gradient.min.css" />
-    <Content Include="Content\components\form-password.min.css" />
-    <Content Include="Content\components\form-select.almost-flat.css" />
-    <Content Include="Content\components\form-select.almost-flat.min.css" />
-    <Content Include="Content\components\form-select.css" />
-    <Content Include="Content\components\form-select.gradient.css" />
-    <Content Include="Content\components\form-select.gradient.min.css" />
-    <Content Include="Content\components\form-select.min.css" />
-    <Content Include="Content\components\htmleditor.almost-flat.css" />
-    <Content Include="Content\components\htmleditor.almost-flat.min.css" />
-    <Content Include="Content\components\htmleditor.css" />
-    <Content Include="Content\components\htmleditor.gradient.css" />
-    <Content Include="Content\components\htmleditor.gradient.min.css" />
-    <Content Include="Content\components\htmleditor.min.css" />
-    <Content Include="Content\components\nestable.almost-flat.css" />
-    <Content Include="Content\components\nestable.almost-flat.min.css" />
-    <Content Include="Content\components\nestable.css" />
-    <Content Include="Content\components\nestable.gradient.css" />
-    <Content Include="Content\components\nestable.gradient.min.css" />
-    <Content Include="Content\components\nestable.min.css" />
-    <Content Include="Content\components\notify.almost-flat.css" />
-    <Content Include="Content\components\notify.almost-flat.min.css" />
-    <Content Include="Content\components\notify.css" />
-    <Content Include="Content\components\notify.gradient.css" />
-    <Content Include="Content\components\notify.gradient.min.css" />
-    <Content Include="Content\components\notify.min.css" />
-    <Content Include="Content\components\placeholder.almost-flat.css" />
-    <Content Include="Content\components\placeholder.almost-flat.min.css" />
-    <Content Include="Content\components\placeholder.css" />
-    <Content Include="Content\components\placeholder.gradient.css" />
-    <Content Include="Content\components\placeholder.gradient.min.css" />
-    <Content Include="Content\components\placeholder.min.css" />
-    <Content Include="Content\components\progress.almost-flat.css" />
-    <Content Include="Content\components\progress.almost-flat.min.css" />
-    <Content Include="Content\components\progress.css" />
-    <Content Include="Content\components\progress.gradient.css" />
-    <Content Include="Content\components\progress.gradient.min.css" />
-    <Content Include="Content\components\progress.min.css" />
-    <Content Include="Content\components\search.almost-flat.css" />
-    <Content Include="Content\components\search.almost-flat.min.css" />
-    <Content Include="Content\components\search.css" />
-    <Content Include="Content\components\search.gradient.css" />
-    <Content Include="Content\components\search.gradient.min.css" />
-    <Content Include="Content\components\search.min.css" />
-    <Content Include="Content\components\slidenav.almost-flat.css" />
-    <Content Include="Content\components\slidenav.almost-flat.min.css" />
-    <Content Include="Content\components\slidenav.css" />
-    <Content Include="Content\components\slidenav.gradient.css" />
-    <Content Include="Content\components\slidenav.gradient.min.css" />
-    <Content Include="Content\components\slidenav.min.css" />
-    <Content Include="Content\components\slideshow.almost-flat.css" />
-    <Content Include="Content\components\slideshow.almost-flat.min.css" />
-    <Content Include="Content\components\slideshow.css" />
-    <Content Include="Content\components\slideshow.gradient.css" />
-    <Content Include="Content\components\slideshow.gradient.min.css" />
-    <Content Include="Content\components\slideshow.min.css" />
-    <Content Include="Content\components\sortable.almost-flat.css" />
-    <Content Include="Content\components\sortable.almost-flat.min.css" />
-    <Content Include="Content\components\sortable.css" />
-    <Content Include="Content\components\sortable.gradient.css" />
-    <Content Include="Content\components\sortable.gradient.min.css" />
-    <Content Include="Content\components\sortable.min.css" />
-    <Content Include="Content\components\sticky.almost-flat.css" />
-    <Content Include="Content\components\sticky.almost-flat.min.css" />
-    <Content Include="Content\components\sticky.css" />
-    <Content Include="Content\components\sticky.gradient.css" />
-    <Content Include="Content\components\sticky.gradient.min.css" />
-    <Content Include="Content\components\sticky.min.css" />
-    <Content Include="Content\components\tooltip.almost-flat.css" />
-    <Content Include="Content\components\tooltip.almost-flat.min.css" />
-    <Content Include="Content\components\tooltip.css" />
-    <Content Include="Content\components\tooltip.gradient.css" />
-    <Content Include="Content\components\tooltip.gradient.min.css" />
-    <Content Include="Content\components\tooltip.min.css" />
-    <Content Include="Content\components\upload.almost-flat.css" />
-    <Content Include="Content\components\upload.almost-flat.min.css" />
-    <Content Include="Content\components\upload.css" />
-    <Content Include="Content\components\upload.gradient.css" />
-    <Content Include="Content\components\upload.gradient.min.css" />
-    <Content Include="Content\components\upload.min.css" />
-    <Content Include="Content\uikit.almost-flat.css" />
-    <Content Include="Content\uikit.almost-flat.min.css" />
-    <Content Include="Content\uikit.css" />
-    <Content Include="Content\uikit.gradient.css" />
-    <Content Include="Content\uikit.gradient.min.css" />
-    <Content Include="Content\uikit.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Scripts\components\accordion.js" />
-    <Content Include="Scripts\components\accordion.min.js" />
-    <Content Include="Scripts\components\autocomplete.js" />
-    <Content Include="Scripts\components\autocomplete.min.js" />
-    <Content Include="Scripts\components\datepicker.js" />
-    <Content Include="Scripts\components\datepicker.min.js" />
-    <Content Include="Scripts\components\form-password.js" />
-    <Content Include="Scripts\components\form-password.min.js" />
-    <Content Include="Scripts\components\form-select.js" />
-    <Content Include="Scripts\components\form-select.min.js" />
-    <Content Include="Scripts\components\grid.js" />
-    <Content Include="Scripts\components\grid.min.js" />
-    <Content Include="Scripts\components\htmleditor.js" />
-    <Content Include="Scripts\components\htmleditor.min.js" />
-    <Content Include="Scripts\components\lightbox.js" />
-    <Content Include="Scripts\components\lightbox.min.js" />
-    <Content Include="Scripts\components\nestable.js" />
-    <Content Include="Scripts\components\nestable.min.js" />
-    <Content Include="Scripts\components\notify.js" />
-    <Content Include="Scripts\components\notify.min.js" />
-    <Content Include="Scripts\components\pagination.js" />
-    <Content Include="Scripts\components\pagination.min.js" />
-    <Content Include="Scripts\components\search.js" />
-    <Content Include="Scripts\components\search.min.js" />
-    <Content Include="Scripts\components\slideshow-fx.js" />
-    <Content Include="Scripts\components\slideshow-fx.min.js" />
-    <Content Include="Scripts\components\slideshow.js" />
-    <Content Include="Scripts\components\slideshow.min.js" />
-    <Content Include="Scripts\components\sortable.js" />
-    <Content Include="Scripts\components\sortable.min.js" />
-    <Content Include="Scripts\components\sticky.js" />
-    <Content Include="Scripts\components\sticky.min.js" />
-    <Content Include="Scripts\components\timepicker.js" />
-    <Content Include="Scripts\components\timepicker.min.js" />
-    <Content Include="Scripts\components\tooltip.js" />
-    <Content Include="Scripts\components\tooltip.min.js" />
-    <Content Include="Scripts\components\upload.js" />
-    <Content Include="Scripts\components\upload.min.js" />
-    <Content Include="Scripts\core\alert.js" />
-    <Content Include="Scripts\core\alert.min.js" />
-    <Content Include="Scripts\core\button.js" />
-    <Content Include="Scripts\core\button.min.js" />
-    <Content Include="Scripts\core\core.js" />
-    <Content Include="Scripts\core\core.min.js" />
-    <Content Include="Scripts\core\cover.js" />
-    <Content Include="Scripts\core\cover.min.js" />
-    <Content Include="Scripts\core\dropdown.js" />
-    <Content Include="Scripts\core\dropdown.min.js" />
-    <Content Include="Scripts\core\grid.js" />
-    <Content Include="Scripts\core\grid.min.js" />
-    <Content Include="Scripts\core\modal.js" />
-    <Content Include="Scripts\core\modal.min.js" />
-    <Content Include="Scripts\core\nav.js" />
-    <Content Include="Scripts\core\nav.min.js" />
-    <Content Include="Scripts\core\offcanvas.js" />
-    <Content Include="Scripts\core\offcanvas.min.js" />
-    <Content Include="Scripts\core\scrollspy.js" />
-    <Content Include="Scripts\core\scrollspy.min.js" />
-    <Content Include="Scripts\core\smooth-scroll.js" />
-    <Content Include="Scripts\core\smooth-scroll.min.js" />
-    <Content Include="Scripts\core\switcher.js" />
-    <Content Include="Scripts\core\switcher.min.js" />
-    <Content Include="Scripts\core\tab.js" />
-    <Content Include="Scripts\core\tab.min.js" />
-    <Content Include="Scripts\core\toggle.js" />
-    <Content Include="Scripts\core\toggle.min.js" />
-    <Content Include="Scripts\core\touch.js" />
-    <Content Include="Scripts\core\touch.min.js" />
-    <Content Include="Scripts\core\utility.js" />
-    <Content Include="Scripts\core\utility.min.js" />
-    <Content Include="Scripts\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.js" />
-    <Content Include="Scripts\uikit.js" />
-    <Content Include="Scripts\uikit.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -343,12 +114,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\jquery-2.1.0.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -403,6 +170,13 @@
     <PostBuildEvent>xcopy "$(TargetPath)" "$(SolutionDir)build\plugins" /Y
 xcopy "$(TargetPath)" "$(SolutionDir)EkzoPlugin\plugins" /Y</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Web", "EkzoPlugin\EkzoPlugin.Web.csproj", "{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.CoreSite", "EkzoPlugin\EkzoPlugin.CoreSite.csproj", "{5CB85AC8-3C9D-4C0C-AB37-A630983B42D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Infrastructure", "EkzoPlugin.Infrastructure\EkzoPlugin.Infrastructure.csproj", "{DDABBF1F-9C82-4D1D-9FDE-025D37EBE5BB}"
 EndProject

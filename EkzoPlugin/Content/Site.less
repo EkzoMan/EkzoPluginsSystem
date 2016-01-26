@@ -1,0 +1,59 @@
+﻿@sideNavWidth: 300px;
+
+body {
+    header, main, footer {
+        padding-left: @sideNavWidth;
+        overflow: visible;
+    }
+
+    @media only screen and (max-width : 992px) {
+        header, main, footer {
+            padding-left: 0;
+        }
+    }
+
+    header {
+        nav {
+            div {
+                padding: 0 20px;
+            }
+        }
+    }
+
+    main {
+        padding: 20px 10px 0 @sideNavWidth+20;
+    }
+
+
+
+    .side-nav {
+        width: @sideNavWidth;
+    }
+
+    #left-nav-bar {
+        li {
+            a {
+                color: #ffffff;
+            }
+        }
+
+        li:hover {
+            background-color: #00838f;
+        }
+    }
+
+
+    .logo {
+        margin: 30px auto;
+        padding: 0 35px;
+    }
+
+    .logo:hover {
+        background-color: #006064 !important;
+    }
+
+
+    #sidenav-btn {
+        margin: -30px 0 0 20px;
+    }
+}

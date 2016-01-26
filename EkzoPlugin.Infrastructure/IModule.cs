@@ -23,15 +23,5 @@ namespace EkzoPlugin.Infrastructure
         /// Entry controller name
         /// </summary>
         string EntryControllerName { get; }
-
-        /// <summary>
-        /// Install module
-        /// </summary>
-        void Install();
-        
-        /// <summary>
-        /// Remove module
-        /// </summary>
-        void Uninstall();
     }
 }

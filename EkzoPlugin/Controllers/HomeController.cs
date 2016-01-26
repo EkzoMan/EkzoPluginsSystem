@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EkzoPlugin.Web.Controllers
+namespace EkzoPlugin.CoreSite.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,16 +14,5 @@ namespace EkzoPlugin.Web.Controllers
             return View();
         }
 
-        public ActionResult Changelog()
-        {
-            ViewBag.Title = "Change log";
-            return View();
-        }
-
-        public ActionResult RoadMap()
-        {
-            ViewBag.Title = "Roadmap";
-            return View();
-        }
     }
 }

@@ -8,7 +8,7 @@ namespace EkzoPlugin.Plugins.SampleMVC
     {
         public string Title
         {
-            get { return "Simple Plugin"; }
+            get { return "MVC Test"; }
         }
 
         public string Name
@@ -24,16 +24,6 @@ namespace EkzoPlugin.Plugins.SampleMVC
         public string EntryControllerName
         {
             get { return "SampleMVC"; }
-        }
-
-        public void Install()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Uninstall()
-        {
-            throw new NotImplementedException();
         }
     }
 }
