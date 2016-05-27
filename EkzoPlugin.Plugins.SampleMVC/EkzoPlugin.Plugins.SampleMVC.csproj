@@ -168,7 +168,7 @@
   </ProjectExtensions>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetPath)" "$(SolutionDir)build\plugins" /Y
-xcopy "$(TargetPath)" "$(SolutionDir)EkzoPlugin\plugins" /Y</PostBuildEvent>
+xcopy "$(TargetPath)" "$(SolutionDir)EkzoPlugin\plugins\SampleMVC" /Y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

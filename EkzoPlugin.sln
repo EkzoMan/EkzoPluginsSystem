@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.PluginManager", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EkzoPlugin.Plugins.SampleMVC", "EkzoPlugin.Plugins.SampleMVC\EkzoPlugin.Plugins.SampleMVC.csproj", "{EE20512B-A5C1-46C0-A2EC-19F58E716997}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{31C4B321-6E48-453C-BDA2-9C0FBCBD5E10}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		.NET 3.5 DEBUG|Any CPU = .NET 3.5 DEBUG|Any CPU

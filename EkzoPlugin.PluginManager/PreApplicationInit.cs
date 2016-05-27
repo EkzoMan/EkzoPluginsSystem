@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Compilation;
 using System.Web.Hosting;
 using EkzoPlugin.Infrastructure;
+using System.Collections.Generic;
 
 [assembly: PreApplicationStartMethod(typeof(EkzoPlugin.PluginManager.PreApplicationInit), "InitializePlugins")]
 namespace EkzoPlugin.PluginManager
@@ -35,8 +36,35 @@ namespace EkzoPlugin.PluginManager
 
             PluginFolder = new DirectoryInfo(pluginsPath);
 
-            var assemblies = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
+            var libs = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
                      .Select(x => AssemblyName.GetAssemblyName(x.FullName));
+
+            IList<System.Reflection.AssemblyName> assemblies = new List<AssemblyName>();
+
+            foreach (var dll in libs)
+            {
+                try
+                {
+                    if (AppDomain.CurrentDomain.Load(dll).GetTypes().Any(o => o.GetInterface(typeof(IModule).Name) != null))
+                    {
+                        //Add new assembly to list
+                        if (!assemblies.Any(o => o.Name == dll.Name))
+                            assemblies.Add(dll);
+                        //Replace assembly with higher version copy
+                        else if (assemblies.Any(o => o.Name == dll.Name && o.Version < dll.Version))
+                        {
+                            assemblies.Remove(assemblies.FirstOrDefault(o => o.Name == dll.Name));
+                            assemblies.Add(dll);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    foreach (var loaderException in (ex as System.Reflection.ReflectionTypeLoadException).LoaderExceptions)
+                        System.Diagnostics.Debug.WriteLine(loaderException.Message);
+                }
+            }
 
             foreach (var assembly in assemblies)
             {
@@ -52,7 +80,6 @@ namespace EkzoPlugin.PluginManager
                         //Add the modules to the PluginManager to manage them later
                         var module = (IModule)Activator.CreateInstance(type);
                         PluginManager.Current.Modules.Add(module, currentAssambly);
-                        
                     }
                 }
                 catch (Exception ex)

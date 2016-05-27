@@ -13,12 +13,7 @@ namespace EkzoPlugin.Infrastructure
         /// Name of the plugin, should be an unique name
         /// </summary>
         string Name { get; }
-
-        /// <summary>
-        /// Version of the loaded plugin
-        /// </summary>
-        Version Version { get; }
-
+                
         /// <summary>
         /// Entry controller name
         /// </summary>
