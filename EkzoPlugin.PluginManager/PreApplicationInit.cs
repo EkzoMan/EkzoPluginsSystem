@@ -36,8 +36,19 @@ namespace EkzoPlugin.PluginManager
 
             PluginFolder = new DirectoryInfo(pluginsPath);
 
+
+
+            string cachePath = initShadowCopyDirectory(PluginFolder.FullName);
+            AppDomain.CurrentDomain.SetCachePath(cachePath);
+            if (!System.IO.Directory.Exists(cachePath)) System.IO.Directory.CreateDirectory(cachePath, new System.Security.AccessControl.DirectorySecurity());
+
+            //Set shadowcopy to prevent locking plugins
+            AppDomain.CurrentDomain.SetShadowCopyPath(AppDomain.CurrentDomain.BaseDirectory);
+            AppDomain.CurrentDomain.SetShadowCopyFiles();
+
+
             var libs = PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories)
-                     .Select(x => AssemblyName.GetAssemblyName(x.FullName));
+                      .Select(x => AssemblyName.GetAssemblyName(x.FullName));
 
             IList<System.Reflection.AssemblyName> assemblies = new List<AssemblyName>();
 
@@ -45,7 +56,7 @@ namespace EkzoPlugin.PluginManager
             {
                 try
                 {
-                    if (AppDomain.CurrentDomain.Load(dll).GetTypes().Any(o => o.GetInterface(typeof(IModule).Name) != null))
+                    if (Assembly.Load(dll).GetTypes().Any(o => o.GetInterface(typeof(IModule).Name) != null))
                     {
                         //Add new assembly to list
                         if (!assemblies.Any(o => o.Name == dll.Name))
@@ -66,10 +77,12 @@ namespace EkzoPlugin.PluginManager
                 }
             }
 
+
             foreach (var assembly in assemblies)
             {
                 try
                 {
+                    //Load assabmly from bytes array to prevent file lock
                     var currentAssambly = AppDomain.CurrentDomain.Load(assembly);
                     Type type = currentAssambly.GetTypes().Where(t => t.GetInterface(typeof(IModule).Name) != null).FirstOrDefault();
                     if (type != null)
@@ -90,5 +103,39 @@ namespace EkzoPlugin.PluginManager
                 }
             }
         }
+
+        /// <summary>
+        /// Get bytes from specified file
+        /// </summary>
+        /// <param name="path">Path to file</param>
+        /// <returns>Byte array</returns>
+        private static byte[] getFileBytes(string path)
+        {
+            return System.IO.File.ReadAllBytes(path);
+        }
+
+        /// <summary>
+        /// Returns assably file path
+        /// </summary>
+        /// <param name="assembly">Assembly</param>
+        /// <returns>Path to assembly</returns>
+        private static string getAssemblyPath(AssemblyName assembly)
+        {
+            string path = (new System.Uri(assembly.CodeBase)).AbsolutePath;
+            return path;
+        }
+
+        /// <summary>
+        /// Initialize shadow copy directory
+        /// </summary>
+        /// <param name="pluginsPath">Path to plugins directory</param>
+        /// <returns>Path to shadow copy directory</returns>
+        private static string initShadowCopyDirectory(string pluginsPath)
+        {
+            string result = System.IO.Path.Combine(pluginsPath, "shadowCopy");
+            if (!System.IO.Directory.Exists(result)) System.IO.Directory.CreateDirectory(result);
+            return result;
+        }
+
     }
 }
